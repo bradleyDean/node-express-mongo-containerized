@@ -29,7 +29,7 @@ app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
 
-app.use(express.json()); // Place this near the top of your file
+app.use(express.json()); 
 
 const userSchema = new Schema({
   name: { type: String, required: true },
