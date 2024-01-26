@@ -4,6 +4,8 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
 COPY . .
+# RUN ls -la # List directory, stage 1
+CMD [ "ls", "-la"] # Run the ls command, stage 1
 RUN npm run compile-ts # Use the compile-ts script to compile TypeScript
 RUN ls -la  # List directory, stage 1 
 
@@ -11,12 +13,16 @@ RUN ls -la  # List directory, stage 1
 # Stage 2: Setup the final image with only the compiled JavaScript and necessary runtime dependencies
 FROM node:20 AS setup-final-image
 WORKDIR /usr/src/app
-COPY --from=build-stage /usr/src/app/dist /usr/src/app/dist
+# RUN ls -la # List directory, stage 2
+RUN pwd # Print working directory, stage 2
+COPY --from=build-stage /usr/src/app/dist ./dist
+RUN ls -la # List directory after copy, stage 2
 COPY package*.json ./
 RUN npm install --only=production # Install only production dependencies
 EXPOSE 3000
-RUN ls -la # List contents, stage 2 
-CMD ["node", "dist/app.js"] # Run the compiled app
+# RUN ls -la # List contents, stage 2 
+CMD [ "ls", "-la"] # Run the ls command, stage 2
+CMD ["node", "dist/index.js"] # Run the compiled app
 
 
 
