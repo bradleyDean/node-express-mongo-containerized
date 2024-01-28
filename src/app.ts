@@ -18,7 +18,7 @@ setupDatabase().then(() => {
 });
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World-d-d-d!');
+  res.send('Hello World!');
 });
 
 app.use(express.json()); 
