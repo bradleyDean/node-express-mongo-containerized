@@ -7,7 +7,7 @@ import { Schema, model } from 'mongoose';
 import * as dotenv from 'dotenv';
 import userRoutes from './routes/userRoutes';
 
-const app = express();
+export const app = express();
 
 setupDatabase().then(() => {  
   // TODO: remove this log, since we log a similar message in database/index.ts
