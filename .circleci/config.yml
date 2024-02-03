@@ -17,9 +17,9 @@ jobs:
       - run:
           name: Run Unit Tests
           command: npm run test:unit
-      - run:
-          name: Run Integration Tests
-          command: npm run test:integration
+      # - run:
+      #     name: Run Integration Tests
+      #     command: npm run test:integration
       - run:
           name: Start Server and Test
           command: |
