@@ -7,6 +7,9 @@ jobs:
   build-and-test:
     docker:
       - image: cimg/node:20.11.0
+      - image: mongo:latest
+        environment:
+          MONGO_INITDB_DATABASE: myAppDb
     steps:
       - checkout
       - node/install-packages:
