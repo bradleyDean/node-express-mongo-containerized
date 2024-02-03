@@ -1,0 +1,34 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@4.7.0
+
+jobs:
+  build-and-test:
+    docker:
+      - image: cimg/node:20.11.0
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: npm
+      - run:
+          name: Compile TypeScript
+          command: npm run compile-ts
+      - run:
+          name: Run Unit Tests
+          command: npm run test:unit
+      - run:
+          name: Run Integration Tests
+          command: npm run test:integration
+      - run:
+          name: Start Server and Test
+          command: |
+            npm start &
+            sleep 5
+            curl --fail http://localhost:3000/
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build-and-test
