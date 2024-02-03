@@ -16,4 +16,4 @@
 //   }
 // };
 
-export const getMongoUri = () => `mongodb://mongo:27017/${dbName}`;
+export const getMongoUri = () => `mongodb://localhost:27017/${dbName}`;
