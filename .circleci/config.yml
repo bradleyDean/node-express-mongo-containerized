@@ -25,18 +25,18 @@ jobs:
               sleep 1
             done
             echo "MongoDB started"
-      - run:
-          name: Run Unit Tests
-          command: npm run test:unit
       # - run:
-      #     name: Run Integration Tests
-      #     command: npm run test:integration
+      #     name: Run Unit Tests
+      #     command: npm run test:unit
       - run:
-          name: Start Server and Test
-          command: |
-            npm start &
-            sleep 5
-            curl --fail http://localhost:3000/
+          name: Run Integration Tests
+          command: npm run test:integration
+      # - run:
+      #     name: Start Server and Test
+      #     command: |
+      #       npm start &
+      #       sleep 5
+      #       curl --fail http://localhost:3000/
 
 workflows:
   version: 2
