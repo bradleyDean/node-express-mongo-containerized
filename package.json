@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "Containerized node express microservice with mongo. Compatible with CircleCi integration for CI/CD",
   "main": "index.js",
+
   "scripts": {
     "compile-ts": "tsc",
     "start": "node dist/index.js",
     "dev": "ts-node-dev --respawn src/index.ts",
-    "test": "npm run test:unit && npm run test:integration",
-    "test:unit": "jest",
+    "test:unit": "jest",  
     "test:unit:watch": "jest --watch",
     "test:integration": "jest --testMatch='**/*.integration.test.ts'"
   },

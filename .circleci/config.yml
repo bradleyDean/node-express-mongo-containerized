@@ -18,6 +18,14 @@ jobs:
           name: Compile TypeScript
           command: npm run compile-ts
       - run:
+          name: Wait for MongoDB to be ready
+          command: |
+            echo "Waiting for MongoDB to start..."
+            while ! nc -z localhost 27017; do
+              sleep 1
+            done
+            echo "MongoDB started"
+      - run:
           name: Run Unit Tests
           command: npm run test:unit
       # - run:
