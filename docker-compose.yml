@@ -11,7 +11,7 @@ services:
     networks:
       - app-network
 
-  mongo:
+  mongo: #<- this is the host name when running in docker!
     image: mongo
     ports:
       - "27017:27017"
