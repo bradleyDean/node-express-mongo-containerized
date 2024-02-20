@@ -1,0 +1,7 @@
+# Use the official MongoDB image as the base image
+FROM mongo
+
+# Copy your setup script into the container
+COPY init-scripts/mongo-init-scripts/mongo-init.js /docker-entrypoint-initdb.d/
+
+# The default command will run when the container starts, no need to modify it

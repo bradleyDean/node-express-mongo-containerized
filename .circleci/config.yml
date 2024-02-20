@@ -10,8 +10,7 @@ jobs:
       - image: circleci/mongo:latest
         environment:
           MONGO_INITDB_DATABASE: myAppDb
-        volumes:
-          - ./init-scripts/mongo-init-scripts:/docker-entrypoint-initdb.d     
+
     steps:
       - checkout
       - node/install-packages:
@@ -39,6 +38,7 @@ jobs:
             npm start &
             sleep 5
             curl --fail http://localhost:3000/
+    
 
 workflows:
   version: 2

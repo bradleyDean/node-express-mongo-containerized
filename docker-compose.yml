@@ -12,11 +12,11 @@ services:
       - app-network
 
   mongo: #<- this is the host name when running in docker!
-    image: mongo
+    image: bradleydean/basic-mongo-v0.0
     ports:
       - "27017:27017"
-    volumes:
-      - ./init-scripts/mongo-init-scripts:/docker-entrypoint-initdb.d
+    # volumes:
+      # - ./init-scripts/mongo-init-scripts:/docker-entrypoint-initdb.d
     networks:
       - app-network
 
